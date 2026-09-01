@@ -1,0 +1,25 @@
+/* IDENTITY VARIANTS — apply with <body data-theme="beige">.
+   Green is the default (see tokens/semantic.css) and is listed here for
+   completeness; beige and orange are the other two candidate directions from
+   the source system, kept so the same page can be judged on identity alone. */
+[data-theme="green"]{
+  --page:var(--green-900);--surface:#edf5ee;--surface-2:#ffffff;
+  --ink:var(--green-900);--ink-muted:#2f5741;
+  --accent:var(--green-600);--accent-ink:#ffffff;--accent-quiet:var(--green-100);
+  --chip:rgba(31,122,77,.12);--hairline:rgba(6,24,15,.14);
+}
+[data-theme="beige"]{
+  --page:var(--teal-800);--surface:var(--beige-150);--surface-2:var(--n-0);
+  --ink:var(--n-1000);--ink-muted:var(--brown-800);
+  --accent:var(--beige-600);--accent-ink:var(--n-0);--accent-quiet:var(--beige-100);
+  --chip:rgba(0,0,0,.06);--hairline:rgba(0,0,0,.12);
+}
+[data-theme="orange"]{
+  --page:#1c0f07;--surface:#fdf1e7;--surface-2:#ffffff;
+  --ink:#1c0f07;--ink-muted:#7a4a24;
+  --accent:#e8631a;--accent-ink:#ffffff;--accent-quiet:#fbdcc6;
+  --chip:rgba(232,99,26,.12);--hairline:rgba(28,15,7,.14);
+}
+/* Light-page inversion — some screens read better dark-on-light than as a
+   panel floating on the page colour. Composes with any theme. */
+[data-surface="light"]{--page:var(--surface);--surface:var(--surface-2)}

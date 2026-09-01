@@ -1,0 +1,29 @@
+/* Type. Scale 92 / 56 / 32 / 18 / 16 / 14 / 12.
+   One heading weight (500) for the whole system — hierarchy is size and space.
+   Tracking tightens as size grows; line-height loosens as size shrinks. */
+:root{
+  --font-sans:"Inter Tight","Schibsted Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --weight-heading:500;
+  --weight-body:400;
+
+  --fs-display:clamp(3rem,7.2vw,5.76rem); /* @kind font */ /* 92px at 1280 */
+  --fs-h2:clamp(2.25rem,4.4vw,3.5rem); /* @kind font */ /* 56px */
+  --fs-h3:clamp(1.5rem,2.5vw,2rem); /* @kind font */ /* 32px */
+  --fs-lead:1.125rem;
+  --fs-body:1rem;
+  --fs-small:0.875rem;
+  --fs-tiny:0.75rem;
+
+  --lh-display:0.95; /* @kind font */
+  --lh-h2:1.0; /* @kind font */
+  --lh-h3:1.2; /* @kind font */
+  --lh-body:1.4; /* @kind font */
+
+  --tracking-display:-0.045em;--tracking-h2:-0.04em;--tracking-h3:-0.02em;--tracking-body:normal;
+  --tracking-eyebrow:0.08em;
+
+  --measure-lead:46ch;
+  --measure-body:64ch;
+}

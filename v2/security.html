@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>graphzero 2 | Security</title>
+<meta name="description" content="Secure and sovereign to the highest European standards. Your knowledge stays yours, sensitive data never reaches a model that should not see it, and governance sits in one place.">
+<meta property="og:title" content="graphzero 2 | Security">
+<meta property="og:description" content="Secure and sovereign to the highest European standards. Your knowledge stays yours, sensitive data never reaches a model that should not see it, and governance sits in one place.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="assets/design-system/styles.css">
+<link rel="stylesheet" href="assets/site.css?v=11">
+<link rel="icon" href="assets/graphzero-mark.svg?v=11" type="image/svg+xml">
+</head>
+<body data-surface="light">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="page" data-page="security">
+
+  <!-- The wordmark is the way back to the top of the site. -->
+  <header class="site-header">
+    <div class="brand-switch" data-identity-switch>
+      <!-- Two identities under comparison, and scaffolding like the hero mark's
+           arrow: drop this wrapper, the .brand-switch rules and the identity
+           block in site.js once one is chosen, leaving the <a> where it is. -->
+      <a class="brand" href="index.html" title="/graphzero">
+        <span class="brand__slash">/</span><span class="brand__name">graphzero</span>
+      </a>
+      <button class="brand-switch__arrow" type="button" data-identity-step="1"
+              aria-label="Next identity">&rsaquo;</button>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="index.html">Product</a>
+      <a href="work-with-us.html">Work with us</a>
+      <a href="security.html" aria-current="page">Security</a>
+
+      <!-- Only ever seen in the sheet. The desktop bar has no room for it. -->
+      <div class="nav-cta">
+        <a class="btn btn--hero" href="mailto:david@ascending.ai?subject=Ascending%20AI">Book a founder call</a>
+      </div>
+    </nav>
+
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang__opt" type="button" data-lang="en" aria-current="true">EN</button>
+      <button class="lang__opt" type="button" data-lang="de">DE</button>
+      <button class="lang__opt" type="button" data-lang="nl">NL</button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- The page opens on the inverted band the security section carries on the
+         index; everything below it runs on white. -->
+    <section class="band band--dark dark">
+      <div class="wrap sec sec--pb">
+        <!-- Copy on the left, marks on the right, on the site's own .secsplit —
+             the same split the work-with-us band runs. It collapses to one
+             column under 900px on its own, so the marks fall under the sentence
+             on a phone rather than being squeezed beside it. -->
+        <div class="secsplit">
+          <div class="secsplit__lead">
+            <h1 class="h2 sec-head">Secure by design, sovereign by default.</h1>
+            <p class="lead">Your knowledge stays yours. EU infrastructure, EU-hosted models, permissions at fact level, and an audit trail you can read.</p>
+          </div>
+
+          <!-- Not lazy: unlike on work-with-us this row is above the fold, and
+               deferring it would pop the marks in after the band had painted. -->
+          <div class="secsplit__marks">
+            <div class="markrow">
+              <img class="markrow__badge" src="assets/media/gdpr.png"
+                   alt="GDPR" width="640" height="631" decoding="async">
+              <img class="markrow__badge" src="assets/media/eu-ai-act.png"
+                   alt="EU AI Act" width="640" height="631" decoding="async">
+              <img class="markrow__badge" src="assets/media/iso-27001.png"
+                   alt="ISO 27001" width="557" height="640" decoding="async">
+            </div>
+            <p class="small markrow__note">ISO 27001 certification in progress; our security management system follows the standard today.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap sec">
+      <div class="secsplit">
+        <div class="secsplit__lead">
+          <h2 class="h2">Your knowledge stays yours.</h2>
+          <p class="lead">The knowledge base is an asset you own, not a service you rent.</p>
+        </div>
+        <ol class="numlist">
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">01</span>
+          <div>
+            <h3 class="card-title">No data training</h3>
+            <p class="card-note">Your data is never used to train models. Guaranteed in writing, in every contract.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">02</span>
+          <div>
+            <h3 class="card-title">Full export, any time</h3>
+            <p class="card-note">The knowledge base leaves in open formats, readable by people: pages, facts and sources, not embeddings.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">03</span>
+          <div>
+            <h3 class="card-title">Deletion propagates</h3>
+            <p class="card-note">When you remove a source, everything derived from it is removed as well: summaries, answers, and graph entries.</p>
+          </div>
+        </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="wrap sec">
+      <div class="secsplit">
+        <div class="secsplit__lead">
+          <h2 class="h2">Sensitive data never reaches a model that shouldn’t see it.</h2>
+          <p class="lead">Most AI tools send whatever they retrieve into the prompt. graphzero decides what a model may see before inference runs.</p>
+        </div>
+        <ol class="numlist">
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">01</span>
+          <div>
+            <h3 class="card-title">Sensitive-data masking</h3>
+            <p class="card-note">Fields marked sensitive — salaries, IBANs, health data — never appear in a prompt. The system can use them to find the answer; the model never sees them.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">02</span>
+          <div>
+            <h3 class="card-title">Sensitive-data rerouting</h3>
+            <p class="card-note">Content too sensitive for external inference is processed by an EU-hosted or self-hosted model instead. Decided per query, from how the data is tagged.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">03</span>
+          <div>
+            <h3 class="card-title">Permissions at fact level</h3>
+            <p class="card-note">Access rights from SharePoint, Drive and your other sources hold inside graphzero. Every answer is computed against the asker’s rights, and a group channel sees only what every member may see.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">04</span>
+          <div>
+            <h3 class="card-title">Derived knowledge inherits its sources</h3>
+            <p class="card-note">A summary built from three documents is visible only to someone who may open all three. Revoke one source, and the answers built on it follow.</p>
+          </div>
+        </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="wrap sec">
+      <div class="secsplit">
+        <div class="secsplit__lead">
+          <h2 class="h2">Governance in one place.</h2>
+          <p class="lead">Without a knowledge layer, employees connect tools to assistants one by one, with whatever rights the OAuth screen granted. Nobody can list what is connected, and data becomes accessible that shouldn’t be.</p>
+        </div>
+        <ol class="numlist">
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">01</span>
+          <div>
+            <h3 class="card-title">One connection per source</h3>
+            <p class="card-note">HubSpot, Salesforce, AFAS or DATEV is connected once, to graphzero by your admin, not by every employee into their assistants.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">02</span>
+          <div>
+            <h3 class="card-title">Scoped centrally</h3>
+            <p class="card-note">Which teams reach which source, read-only or read-write is decided by the admin, applied everywhere, changed in one place.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">03</span>
+          <div>
+            <h3 class="card-title">Full audit trail</h3>
+            <p class="card-note">What was retrieved, by whom, and when. Every shared answer carries a record of what it rests on.</p>
+          </div>
+        </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="wrap sec">
+      <div class="secsplit">
+        <div class="secsplit__lead">
+          <h2 class="h2">European, enforced.</h2>
+        </div>
+        <ol class="numlist">
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">01</span>
+          <div>
+            <h3 class="card-title">Hosted in EU</h3>
+            <p class="card-note">Your knowledge base runs on European infrastructure, and EU-hosted models process your content inside the EU.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">02</span>
+          <div>
+            <h3 class="card-title">Checked at runtime</h3>
+            <p class="card-note">If a configured model doesn’t meet the requirements set for your data, the pipeline stops. It fails closed, not with a warning.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">03</span>
+          <div>
+            <h3 class="card-title">EU AI Act</h3>
+            <p class="card-note">You always know you are talking to AI. No emotion recognition, no ranking of people, no individual-level analytics.</p>
+          </div>
+        </li>
+        <li class="numlist__item">
+          <span class="numlist__num" aria-hidden="true">04</span>
+          <div>
+            <h3 class="card-title">Works-council ready</h3>
+            <p class="card-note">Consent per team, no individual usage statistics, and a works-agreement template aligned with German co-determination requirements.</p>
+          </div>
+        </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Two choices, made independently of each other. The dot is a mark, not a
+         control: nothing here is selectable, and the page says what each option
+         is rather than composing a sentence out of them. -->
+    <section class="wrap sec">
+      <h2 class="h2 sec-head">Pick your deployment.</h2>
+      <div class="grid-2 pickset">
+        <article class="pick">
+          <span class="pick__dot" aria-hidden="true"></span>
+          <div>
+            <h3 class="card-title">Multi-tenant cloud</h3>
+            <p class="card-note">Our shared environment on EU infrastructure. The quickest way to start, under the same residency and access rules.</p>
+          </div>
+        </article>
+        <article class="pick">
+          <span class="pick__dot" aria-hidden="true"></span>
+          <div>
+            <h3 class="card-title">Dedicated single-tenant cloud</h3>
+            <p class="card-note">Your own isolated environment on EU infrastructure, operated by us.</p>
+          </div>
+        </article>
+        <article class="pick">
+          <span class="pick__dot" aria-hidden="true"></span>
+          <div>
+            <h3 class="card-title">Bring your own cloud</h3>
+            <p class="card-note">Runs in your cloud account, in your region, under your controls.</p>
+          </div>
+        </article>
+        <article class="pick">
+          <span class="pick__dot" aria-hidden="true"></span>
+          <div>
+            <h3 class="card-title">On-premise</h3>
+            <p class="card-note">On request: graphzero inside your own data centre, on hardware you control.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap sec">
+      <h2 class="h2 sec-head">Pick your inference.</h2>
+      <div class="grid-3 pickset">
+        <article class="pick">
+          <span class="pick__dot" aria-hidden="true"></span>
+          <div>
+            <h3 class="card-title">EU-hosted models</h3>
+            <p class="card-note">Your content is processed inside the EU.</p>
+          </div>
+        </article>
+        <article class="pick">
+          <span class="pick__dot" aria-hidden="true"></span>
+          <div>
+            <h3 class="card-title">Self-hosted models</h3>
+            <p class="card-note">Open-weight models running beside the index, in whichever runtime you choose.</p>
+          </div>
+        </article>
+        <article class="pick">
+          <span class="pick__dot" aria-hidden="true"></span>
+          <div>
+            <h3 class="card-title">Your own keys</h3>
+            <p class="card-note">Inference on your existing model agreements — AI spend stays on your contract, at your negotiated terms.</p>
+          </div>
+        </article>
+      </div>
+      <p class="small paperwork" style="padding-top:var(--space-8)">Combinations are supported: routine tasks on self-hosted models, sensitive content stripped before anything external.</p>
+    </section>
+
+    <!-- Three that have a mark of their own, and three that do not: the ones
+         without are rows rather than cards with an empty badge slot. -->
+    <section class="wrap sec sec--pb">
+      <h2 class="h2 sec-head">Certifications &amp; assessments.</h2>
+
+      <div class="grid-3" style="margin-top:var(--section-sm)">
+        <article class="card card--ring card--tall">
+          <img class="card-badge" src="assets/media/gdpr.png"
+               alt="GDPR" width="640" height="631" loading="lazy" decoding="async">
+          <div class="card-foot">
+            <h3 class="card-title">GDPR — compliant</h3>
+            <p class="card-note">DPA, sub-processor list, TOMs and transfer impact assessment available on request.</p>
+          </div>
+        </article>
+        <article class="card card--ring card--tall">
+          <img class="card-badge" src="assets/media/eu-ai-act.png"
+               alt="EU AI Act" width="640" height="631" loading="lazy" decoding="async">
+          <div class="card-foot">
+            <h3 class="card-title">EU AI Act — compliant by design</h3>
+            <p class="card-note">You always know you’re talking to AI, and nothing here ranks or profiles people.</p>
+          </div>
+        </article>
+        <article class="card card--ring card--tall">
+          <img class="card-badge" src="assets/media/iso-27001.png"
+               alt="ISO 27001" width="557" height="640" loading="lazy" decoding="async">
+          <div class="card-foot">
+            <h3 class="card-title">ISO 27001 <span class="note-line">(in progress)</span></h3>
+            <p class="card-note">Certification underway; our security management system follows the standard today.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack-12" style="padding-top:var(--space-12)">
+          <div class="kv kv--ring kv--tight">
+            <span class="kv__key">ISO 42001 — AI management</span>
+            <span class="kv__val">In preparation, following 27001</span>
+          </div>
+          <div class="kv kv--ring kv--tight">
+            <span class="kv__key">CASA — Google application security assessment</span>
+            <span class="kv__val">In progress, for Google Workspace connections</span>
+          </div>
+          <div class="kv kv--ring kv--tight">
+            <span class="kv__key">Independent penetration testing</span>
+            <span class="kv__val">Before each major release; summary under NDA</span>
+          </div>
+      </div>
+
+      <div class="stack-16" style="padding-top:var(--section-md)">
+        <span class="eyebrow eyebrow--accent">The paperwork, ready before you ask</span>
+        <p class="small paperwork">Data processing agreement · sub-processor list · technical and organisational measures · transfer impact assessment · works-agreement template (DE/NL) · AI disclosure documentation. Most onboardings stall on documents, not certificates — ours are drafted, current, and one email away.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- The dark band runs on through the outro, so the page ends on black
+       rather than dropping back to white for the last few lines. -->
+  <footer class="footer-band dark">
+    <div class="wrap site-footer">
+      <span>&copy; 2026 Ascending AI B.V. &middot; Amsterdam, NL</span>
+      <div class="chip-row">
+        <span class="chip-outline">GDPR</span>
+        <span class="chip-outline">EU AI Act</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="assets/site.js?v=11" defer></script>
+</body>
+</html>
