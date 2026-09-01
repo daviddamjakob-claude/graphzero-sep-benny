@@ -1,0 +1,12 @@
+/* TYPOGRAPHY classes. Scale 92/56/32/18/16/14/12, one heading weight. */
+.display{font-size:var(--fs-display);line-height:var(--lh-display);letter-spacing:var(--tracking-display);text-wrap:balance}
+.h2{font-size:var(--fs-h2);line-height:var(--lh-h2);letter-spacing:var(--tracking-h2);text-wrap:balance}
+.h3{font-size:var(--fs-h3);line-height:var(--lh-h3);letter-spacing:var(--tracking-h3)}
+.lead{font-size:var(--fs-lead);line-height:1.45;max-width:var(--measure-lead)}
+.body{font-size:var(--fs-body);line-height:var(--lh-body);max-width:var(--measure-body)}
+.small{font-size:var(--fs-small);line-height:1.4}
+.tiny{font-size:var(--fs-tiny);line-height:1.4;color:var(--ink-muted)}
+.muted{color:var(--ink-muted)}
+.invert{color:var(--ink-invert)}
+.accented{color:var(--accent)}
+.eyebrow{font-size:var(--fs-tiny);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--ink-muted)}

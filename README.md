@@ -1,17 +1,14 @@
-# graphzero-sep
+# graphzero 2
 
-Website repository for GraphZero SEP.
+A static site, no build step. GitHub Pages serves `main` from the repository root.
 
-Currently a placeholder — real content to follow.
+Two pages:
 
-## Local preview
+- `index.html` — the main page: the Knowledge Base 3 fold, then the Knowledge Base B
+  content from "Companies that make the right architectural choices…" down.
+- `work-with-us.html` — the reference landing page from "Empowering organizations…" down.
 
-```bash
-python3 -m http.server 8000
-```
-
-Then open http://localhost:8000
-
-## Deployment
-
-Served by GitHub Pages from the `main` branch, root directory.
+`?v=N` on `assets/site.css` and `assets/site.js` is cache-busting. Pages serves
+everything with `max-age=600`, so a browser can otherwise pick up new markup while
+still running ten-minute-old CSS. Bump it on every page in the same commit as an
+edit to either file.
