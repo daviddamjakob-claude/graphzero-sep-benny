@@ -3651,17 +3651,35 @@ plainest thing in the drawing rather than the most filled. */
   .pickset { grid-template-columns: 1fr; }
 }
 
-/* The Security strip's mark row.
+/* The Security strip's mark column.
 
-   .markrow was written for the work-with-us band, where it sits in
-   .secsplit__lead — a grid whose 24px gap supplies half the air above the marks
-   and all of the air below them (hence "on top of the column's own gap" in the
-   rule itself). In the Security strip the same row sits directly in .wrap,
-   which is a plain block with no gap, so the marks landed 24px under the
-   sentence instead of 48 and the note sat flush against them.
+   The strip runs the site's own .secsplit: copy on the left, marks on the
+   right. .markrow carries a 24px top margin for the case it was written for —
+   third child of a column, sitting under a sentence — but here it is the
+   column's first child, where that margin only drops the marks off the
+   heading's line, so it is zeroed and the column's grid gap supplies the 24px
+   under the marks instead. That is the same distance .secsplit__lead's grid
+   gives it on work-with-us, so both bands still measure 24 below the row.
 
-   Restoring the two distances here rather than moving them into .markrow keeps
-   the component identical in both places: this only matches a row that is a
-   direct child of the band's .wrap, which is the Security strip alone. */
-.band--dark > .wrap > .markrow { margin-top: var(--space-12); }
-.band--dark > .wrap > .markrow + .markrow__note { margin-top: var(--space-6); }
+   The top padding matches .sec-head's own, which is what starts the two
+   columns on the same line. .secsplit collapses to one column under 900px by
+   itself, and this padding then becomes the air between the sentence and the
+   marks, so nothing needs unwinding at that width.
+
+   .markrow itself is untouched, and so is work-with-us. */
+.secsplit__marks {
+  display: grid;
+  gap: var(--space-6);
+  align-content: start;
+  padding-top: var(--space-12);
+}
+
+.secsplit__marks .markrow { margin-top: 0; }
+
+/* Stacked, the column's top padding is no longer aligning anything — it just
+   adds to .secsplit's own 48px gap and opens 96px between the sentence and the
+   marks. Dropped at the width the split collapses, which is also where
+   .sec-head drops its own padding, so the stack keeps the site's 48. */
+@media (max-width: 899px) {
+  .secsplit__marks { padding-top: 0; }
+}

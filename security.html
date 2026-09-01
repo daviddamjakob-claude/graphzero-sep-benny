@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;display=swap">
 <link rel="stylesheet" href="assets/design-system/styles.css">
-<link rel="stylesheet" href="assets/site.css?v=9">
-<link rel="icon" href="assets/graphzero-mark.svg?v=9" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css?v=10">
+<link rel="icon" href="assets/graphzero-mark.svg?v=10" type="image/svg+xml">
 </head>
 <body data-surface="light">
 
@@ -63,22 +63,30 @@
          index; everything below it runs on white. -->
     <section class="band band--dark dark">
       <div class="wrap sec sec--pb">
-        <h1 class="h2 sec-head">Secure by design, sovereign by default.</h1>
-        <p class="lead sec-head__lead">Your knowledge stays yours. EU infrastructure, EU-hosted models, permissions at fact level, and an audit trail you can read.</p>
-        <!-- The same .markrow the work-with-us band carries: the badges are dark
-             artwork and .dark inverts them, and the row wraps on its own, so the
-             strip keeps its existing measures at every width. Not lazy here —
-             unlike on work-with-us this row is above the fold, and deferring it
-             would pop the marks in after the band has already painted. -->
-        <div class="markrow">
-          <img class="markrow__badge" src="assets/media/gdpr.png"
-               alt="GDPR" width="640" height="631" decoding="async">
-          <img class="markrow__badge" src="assets/media/eu-ai-act.png"
-               alt="EU AI Act" width="640" height="631" decoding="async">
-          <img class="markrow__badge" src="assets/media/iso-27001.png"
-               alt="ISO 27001" width="557" height="640" decoding="async">
+        <!-- Copy on the left, marks on the right, on the site's own .secsplit —
+             the same split the work-with-us band runs. It collapses to one
+             column under 900px on its own, so the marks fall under the sentence
+             on a phone rather than being squeezed beside it. -->
+        <div class="secsplit">
+          <div class="secsplit__lead">
+            <h1 class="h2 sec-head">Secure by design, sovereign by default.</h1>
+            <p class="lead">Your knowledge stays yours. EU infrastructure, EU-hosted models, permissions at fact level, and an audit trail you can read.</p>
+          </div>
+
+          <!-- Not lazy: unlike on work-with-us this row is above the fold, and
+               deferring it would pop the marks in after the band had painted. -->
+          <div class="secsplit__marks">
+            <div class="markrow">
+              <img class="markrow__badge" src="assets/media/gdpr.png"
+                   alt="GDPR" width="640" height="631" decoding="async">
+              <img class="markrow__badge" src="assets/media/eu-ai-act.png"
+                   alt="EU AI Act" width="640" height="631" decoding="async">
+              <img class="markrow__badge" src="assets/media/iso-27001.png"
+                   alt="ISO 27001" width="557" height="640" decoding="async">
+            </div>
+            <p class="small markrow__note">ISO 27001 certification in progress; our security management system follows the standard today.</p>
+          </div>
         </div>
-        <p class="small markrow__note">ISO 27001 certification in progress; our security management system follows the standard today.</p>
       </div>
     </section>
 
@@ -357,6 +365,6 @@
 
 </div>
 
-<script src="assets/site.js?v=9" defer></script>
+<script src="assets/site.js?v=10" defer></script>
 </body>
 </html>
