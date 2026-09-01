@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;display=swap">
 <link rel="stylesheet" href="assets/design-system/styles.css">
-<link rel="stylesheet" href="assets/site.css?v=7">
-<link rel="icon" href="assets/graphzero-mark.svg?v=7" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css?v=8">
+<link rel="icon" href="assets/graphzero-mark.svg?v=8" type="image/svg+xml">
 </head>
 <body data-surface="light">
 
@@ -68,12 +68,21 @@
          and the band is simply the page's own white. -->
     <section class="hero-lattice" id="lattice">
       <div class="hero-lattice__stage" id="hero-lattice-stage" aria-hidden="true"></div>
+
+      <!-- The copy rides on the lattice rather than sitting above it, which is
+           how the piece was composed: the graph is a ground for type, not a
+           picture of its own. Centred and on the same type scale as the fold
+           below, so the two heros read as one page rather than two. -->
+      <div class="wrap hero-lattice__inner">
+        <h1 class="display hero-lattice__title">The toolbox to deploy enterprise AI.</h1>
+        <p class="lead hero-lattice__lead">Our managed infrastructure enables in-house teams and integrators to deploy AI that is actually useful because it understands your company context. European by design, built to keep enterprise knowledge sovereign.</p>
+      </div>
     </section>
 
     <section class="hero hero--stack" id="context-layer">
       <div class="wrap hero__inner hero__inner--stack">
         <div class="hero__copy">
-          <h1 class="display hero__title"><span class="hl">Context</span> that makes enterprise AI powerful and sovereign</h1>
+          <h2 class="display hero__title"><span class="hl">Context</span> that makes enterprise AI powerful and sovereign</h2>
           <p class="lead hero__lead">Our knowledge base turns your organization&rsquo;s data into one connected, reasoned structure. From there, AI just works &mdash; securely, and with answers you can always trust.</p>
         </div>
 
@@ -701,6 +710,6 @@
 
 </div>
 
-<script src="assets/site.js?v=7" defer></script>
+<script src="assets/site.js?v=8" defer></script>
 </body>
 </html>

@@ -3561,6 +3561,47 @@ plainest thing in the drawing rather than the most filled. */
   pointer-events: none;
 }
 
+/* The copy rides on the canvas rather than sitting above it — the lattice was
+   composed as a ground for type. Centred on the same scale the fold below uses
+   (.page[data-page="product"] centres its hero), so the two heros read as one
+   page instead of two competing ranks. The band is a grid only so this block
+   can sit in its middle. */
+.hero-lattice { display: grid; align-items: center; }
+
+.hero-lattice__inner {
+  position: relative;
+  /* above the canvas and its top fade */
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding-block: clamp(4rem, 13vh, 8rem) clamp(3rem, 9vh, 5.5rem);
+}
+
+/* The fold's own title metrics, not the larger .hero .display ramp: this hero
+   and the one under it are the same size, which is what stops the page opening
+   on two headlines of different weight. */
+.hero-lattice__title {
+  font-size: clamp(2.25rem, 4.7vw, 3.75rem);
+  max-width: 22ch;
+}
+
+.hero-lattice__lead {
+  margin-top: var(--space-6);
+  max-width: 54ch;
+  margin-inline: auto;
+}
+
+/* Same breakpoints the fold's hero turns at, so the two never disagree. */
+@media (max-width: 900px) {
+  .hero-lattice__title { max-width: none; }
+  .hero-lattice__lead { max-width: var(--measure-body); }
+}
+
+@media (max-width: 760px) {
+  .hero-lattice__title { font-size: clamp(1.75rem, 9.15vw, 4.5rem); }
+}
+
 /* The simulation is continuous motion behind type. Anyone who has asked the
    OS for less of that gets the band as still page colour instead — the script
    checks the same query before it mounts, so this is only the fallback for a

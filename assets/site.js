@@ -934,7 +934,7 @@
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   var el = document.createElement('script');
-  el.src = 'assets/hero-lattice.js?v=7';
+  el.src = 'assets/hero-lattice.js?v=8';
   el.onload = function () {
     try {
       if (!window.heroLattice || !window.heroLattice.mount(stage)) fail();
