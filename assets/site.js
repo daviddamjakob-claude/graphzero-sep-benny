@@ -910,3 +910,42 @@
 
   show('0', false);
 })();
+
+/* Hero lattice.
+
+   The piece is a separate file because it is the one heavy thing on the page —
+   a WebGL2 simulation — and nothing else needs it. It is fetched on first use
+   rather than blocking the fold, and only on the page that has a stage for it,
+   so work-with-us pays nothing for this block.
+
+   heroLattice.mount() reports whether it could start: no WebGL2, or no float
+   buffers, and there is nothing to show. A false is not an error — the band is
+   page colour underneath, which is a fine opening image on its own — so the
+   failure path just drops the canvas rather than leaving a dead one on screen.
+
+   Reduced motion is checked before the fetch, not after: someone who has asked
+   for less movement should not pay for the file either. */
+(function () {
+  'use strict';
+
+  var stage = document.getElementById('hero-lattice-stage');
+  if (!stage) return;
+
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var el = document.createElement('script');
+  el.src = 'assets/hero-lattice.js?v=7';
+  el.onload = function () {
+    try {
+      if (!window.heroLattice || !window.heroLattice.mount(stage)) fail();
+    } catch (e) { fail(); }
+  };
+  el.onerror = fail;
+  document.head.appendChild(el);
+
+  /* Leave the box standing but empty: the band keeps its height, so the copy
+     below does not jump up the page when the graph cannot run. */
+  function fail() {
+    while (stage.firstChild) stage.removeChild(stage.firstChild);
+  }
+})();

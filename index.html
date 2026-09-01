@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;display=swap">
 <link rel="stylesheet" href="assets/design-system/styles.css">
-<link rel="stylesheet" href="assets/site.css?v=6">
-<link rel="icon" href="assets/graphzero-mark.svg?v=6" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css?v=7">
+<link rel="icon" href="assets/graphzero-mark.svg?v=7" type="image/svg+xml">
 </head>
 <body data-surface="light">
 
@@ -42,6 +42,7 @@
     <nav class="site-nav" id="site-nav" aria-label="Primary">
       <a href="index.html" aria-current="page">Product</a>
       <a href="work-with-us.html">Work with us</a>
+      <a href="security.html">Security</a>
 
       <!-- Only ever seen in the sheet. The desktop bar has no room for it. -->
       <div class="nav-cta">
@@ -57,6 +58,17 @@
   </header>
 
   <main id="main">
+
+    <!-- LATTICE — the /9 hero's own piece, kept as the page's opening image.
+         A WebGL force simulation: the graph grows node by node, springs pull it
+         into shape and the camera drifts to hold the mass in frame. It is ink
+         accumulated on white, so it carries the fold on its own and the copy
+         below it is untouched. The stage is empty markup until the script
+         mounts a canvas into it; if WebGL2 is missing, mount() reports false
+         and the band is simply the page's own white. -->
+    <section class="hero-lattice" id="lattice">
+      <div class="hero-lattice__stage" id="hero-lattice-stage" aria-hidden="true"></div>
+    </section>
 
     <section class="hero hero--stack" id="context-layer">
       <div class="wrap hero__inner hero__inner--stack">
@@ -689,6 +701,6 @@
 
 </div>
 
-<script src="assets/site.js?v=6" defer></script>
+<script src="assets/site.js?v=7" defer></script>
 </body>
 </html>

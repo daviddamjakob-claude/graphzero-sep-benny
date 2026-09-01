@@ -3514,3 +3514,98 @@ plainest thing in the drawing rather than the most filled. */
   text-decoration-thickness: 2px;
   text-underline-offset: 0.18em;
 }
+
+/* ==========================================================================
+   Hero lattice — the animated opening band, ported from /9 stop 8/9.
+
+   The piece itself is assets/hero-lattice.js: a WebGL2 force simulation that
+   accumulates white ink on black and inverts once in the composite, so what
+   lands on the page is blue laid on white. It brings its own canvas; this
+   block only has to give it a box and hide the seam at the top.
+
+   Not built on .hero — that class paints a rounded panel behind its content
+   via ::before, which would sit over the canvas. The lattice is the picture,
+   so it gets a bare box of its own.
+   ========================================================================== */
+.hero-lattice {
+  position: relative;
+  /* svh, not vh: on mobile vh is the tallest the viewport ever gets, so the
+     band would run under the browser chrome. The negative margin pulls it up
+     under the sticky header and the padding gives the height back. */
+  min-height: 100svh;
+  margin-top: calc(var(--header-h) * -1);
+  padding-top: var(--header-h);
+  background: var(--page);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-lattice__stage { position: absolute; inset: 0; z-index: 0; }
+
+/* The lattice draws to the very top of the stage and the bar above it is flat
+   page colour, so the two would meet on a hard line. Rather than stop the
+   graph short, its top is dissolved into the bar: page colour at the edge,
+   gone by about a third of the way down, so the mesh appears to come out from
+   under the nav. */
+.hero-lattice__stage::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 38%;
+  z-index: 1;
+  background: linear-gradient(to bottom,
+                var(--page) 0%,
+                rgba(255, 255, 255, 0.78) 20%,
+                rgba(255, 255, 255, 0.34) 52%,
+                transparent 100%);
+  pointer-events: none;
+}
+
+/* The simulation is continuous motion behind type. Anyone who has asked the
+   OS for less of that gets the band as still page colour instead — the script
+   checks the same query before it mounts, so this is only the fallback for a
+   canvas already on screen when the preference changes. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-lattice__stage canvas { display: none; }
+}
+
+/* ==========================================================================
+   Security page — the deployment / inference pickers.
+
+   Ported from /9 with the rest of that page. Everything else the page uses
+   (.card, .kv, .numlist, .band--dark, .sec-head, .grid-2/3, .chip-outline)
+   already existed here: the two stylesheets are siblings and share the same
+   tokens, so only the picker rows and the one measure below them were new.
+   ========================================================================== */
+.pickset { margin-top: var(--section-sm); align-items: stretch; }
+
+.pick {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  align-content: start;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+/* A ring, not a filled dot: it marks the row without reading as a status light
+   — none of these options is the selected one. */
+.pick__dot {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-top: 0.2rem;
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.pick .card-title { font-size: var(--fs-lead); }
+.pick .card-note { margin-top: var(--space-2); max-width: none; }
+
+/* The line under the pickers is prose, so it takes the body measure rather
+   than running the full width of the grid above it. */
+.paperwork { max-width: var(--measure-body); }
+
+@media (max-width: 860px) {
+  .pickset { grid-template-columns: 1fr; }
+}
