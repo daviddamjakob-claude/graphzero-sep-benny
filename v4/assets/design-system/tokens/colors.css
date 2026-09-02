@@ -1,0 +1,26 @@
+/* Colour ramps. Raw values only — components never read these directly,
+   they read the semantic layer in tokens/semantic.css. */
+:root{
+  --n-0:#ffffff;--n-50:#f9f9f9;--n-100:#f6f5f5;--n-200:#eaeaea;--n-300:#e5e5e5;
+  --n-400:#dcdcdf;--n-500:#c4c4c4;--n-600:#929394;--n-900:#252525;--n-1000:#000000;
+
+  /* green — the primary brand ramp */
+  --green-50:#f2faf5;--green-100:#d7f0e0;--green-200:#a9e0c0;--green-300:#63cf8d;
+  --green-400:#2fbf6b;--green-500:#00be46;--green-600:#1f7a4d;--green-700:#0a7a3d;
+  --green-800:#0d3f27;--green-900:#06180f;--green-950:#07130c;
+  --green-signal:#00e14f; /* graph-illumination only, never type or UI fills */
+
+  /* beige / teal — the original editorial ramp, kept for the beige theme */
+  --beige-100:#ede2d7;--beige-150:#f5ece6;--beige-200:#e7d3bf;--beige-250:#e2c9b6;
+  --beige-300:#d2b596;--beige-400:#cca57c;--beige-500:#c49867;--beige-600:#be905c;
+  --beige-700:#af8251;--beige-800:#8c663c;--beige-900:#4f3416;
+  --teal-100:#d4e6eb;--teal-200:#b3cfd7;--teal-300:#79a3ad;--teal-400:#5b8a97;
+  --teal-500:#3b707e;--teal-600:#1e4b57;--teal-700:#10323b;--teal-800:#071b20;
+  --brown-100:#d7cecc;--brown-200:#af9f9c;--brown-300:#ae9a95;--brown-400:#95827d;
+  --brown-500:#806965;--brown-600:#75635e;--brown-700:#6c5751;--brown-800:#4c312b;
+  --blue-100:#d9dee5;--blue-300:#b2cbec;--blue-500:#6386b2;--blue-800:#092245;
+
+  /* system */
+  --success:#027a48;--success-bg:#ecfdf3;
+  --error:#ce3a42;--error-bg:#fef3f2;
+}

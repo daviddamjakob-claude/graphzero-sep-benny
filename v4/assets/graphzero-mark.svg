@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="graphzero">
+  <!-- The wordmark's first two characters, set as outlines rather than as
+       <text>: a favicon is fetched on its own, so a webfont the page loads is
+       not available to it and a font-family here would fall back to whatever
+       the machine has. These are Geist Medium's own glyphs, traced from the
+       same subset the page loads, positioned by the font's advance widths so
+       the pair sets exactly as the wordmark does.
+
+       The plate is white and opaque, so the mark carries its own ground and no
+       longer has to answer the tab's colour — hence the fixed black g, with no
+       prefers-color-scheme flip: against this plate, a light-scheme flip would
+       paint white on white. -->
+  <rect width="64" height="64" fill="#ffffff"/>
+  <g transform="translate(0.830 49.242) scale(0.05865 -0.05865)">
+    <path d="M37 -110 333 750H435L140 -110Z" fill="#0000ff"/>
+    <path d="M289 -162Q226 -162 178.0 -143.0Q130 -124 99.0 -89.5Q68 -55 57 -9L167 -2Q178 -35 205.5 -54.5Q233 -74 289 -74Q355 -74 390.5 -46.0Q426 -18 426 39V116Q407 75 365.0 51.0Q323 27 271 27Q204 27 152.0 60.0Q100 93 71.0 151.0Q42 209 42 285Q42 362 70.5 420.0Q99 478 150.5 511.0Q202 544 267 544Q324 544 367.5 518.0Q411 492 430 448V532H532V42Q532 -24 502.5 -69.5Q473 -115 418.5 -138.5Q364 -162 289 -162ZM288 117Q350 117 387.5 162.0Q425 207 426 286Q427 338 410.0 375.5Q393 413 361.5 433.5Q330 454 288 454Q223 454 187.5 408.5Q152 363 152 286Q152 208 188.5 162.5Q225 117 288 117Z" fill="#000000" transform="translate(494 0)"/>
+  </g>
+</svg>
