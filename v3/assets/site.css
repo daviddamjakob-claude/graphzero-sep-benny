@@ -4139,3 +4139,34 @@ plainest thing in the drawing rather than the most filled. */
 /* Written against --heading before there was an accent that could carry a
    focus ring. Now there is one, and --focus is it. */
 .page .swap__btn:focus-visible { outline-color: var(--focus); }
+
+/* --- The security band on the Product page -------------------------------
+   Ported from /9, where this band is the page's one saturated field: the
+   accent used as a ground rather than as a mark. /9 runs it at #1F009D and
+   lets the muted inks sit low — 0.76 and 0.55 white — because a near-black
+   indigo leaves the whole alpha range to work in.
+
+   Orange cannot be that dark and still read as the brand colour: at equal
+   saturation the hue simply carries more luminance. So the ground is the
+   ramp's own deepest step rather than a colour invented for this one block,
+   and the two muted tiers are lifted to pay for it — on a mid-tone ground the
+   bottom of the range is eaten by the ground itself. The tier survives
+   because 0.88 and 0.75 stay visibly apart, and hierarchy here is size and
+   space in any case.
+
+     ground #9C3A19 · heading 6.92:1 · body 5.72:1 · meta 4.62:1
+   All three clear 4.5:1. Carried over unchanged, /9's own alphas would give
+   4.70:1 and 3.18:1 on this ground, which is why they are not.
+
+   Scoped to the section: --surface-dark is what every other dark block on
+   every page reads, the footer directly below this one included, and those
+   all stay black. */
+.page[data-page="product"] #security {
+  --surface-dark: var(--orange-700);
+  --body: rgba(255, 255, 255, 0.88);
+  --meta: rgba(255, 255, 255, 0.75);
+  /* /9 tints its rule towards the ground's own hue rather than running plain
+     white through it. Same idea, warm — and a divider, so it answers to
+     nothing but the eye. */
+  --line: rgba(255, 224, 212, 0.32);
+}
