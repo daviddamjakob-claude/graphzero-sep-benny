@@ -3301,14 +3301,16 @@ plainest thing in the drawing rather than the most filled. */
 /* --------------------------------------------------------------------------
    The comparison toggle, recoloured.
 
-   The two halves no longer share one treatment. Selected, the left is the
-   design system's own flat grey — --wash-grey-base, #f2f2f2, the same fill the
-   highlighted rows take — and the right is the page's accent, #0000ff. Grey on
-   the left because that half is the case you are being shown in order to
-   reject it: filling it with the CTA black gave it the same weight as the
-   answer. The grey needs help to read as chosen against a half that is simply
-   transparent, so its ring steps up from the 16%-black hairline to solid
-   --ink-muted; the blue carries itself and rings in its own colour.
+   The two halves no longer share one treatment. Selected, "Without graphzero"
+   takes the design system's own flat grey — --wash-grey-base, #f2f2f2, the
+   same fill the highlighted rows take — and "With graphzero" takes the page's
+   accent. Grey on the rejected case rather than on a side: filling it with the
+   CTA black gave it the same weight as the answer, and that holds whichever
+   half it sits in. (It sat on the left when this was written; the two have
+   since swapped, so that the answer leads.) The grey needs help to read as
+   chosen against a half that is simply transparent, so its ring steps up from
+   the 16%-black hairline to solid --ink-muted; the accent carries itself and
+   rings in its own colour.
 
    Scoped to this page: the same diagram runs unmodified elsewhere.
    -------------------------------------------------------------------------- */
