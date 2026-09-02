@@ -949,3 +949,111 @@
     while (stage.firstChild) stage.removeChild(stage.firstChild);
   }
 })();
+
+/* Technical capabilities — the runs from the stack to the rows.
+
+   Five dotted lines leave the plates of the isometric stack for the five rows
+   beside them. The lines are drawn in the stack's own SVG; the rows are in a
+   different column and set their own heights from their copy and their chips.
+   So there is no fixed path that lands on a row at more than one viewport
+   width, and the drawing had settled for fading each line out before the edge
+   and leaving the arrival to the eye — which read as five lines pointing at
+   nothing in particular.
+
+   This measures both ends instead. The start is left exactly where the markup
+   put it, at the plate's own right vertex, and is read back off the path so
+   the anchor stays with the drawing that owns it. The end is the row's number,
+   taken in page coordinates and converted into the SVG's user units, which is
+   what lets the result be written back as a plain `d` on the same element the
+   stylesheet already styles.
+
+   Redrawn on load, on resize, when a row changes size, and once the face has
+   loaded — every occasion on which either end can have moved. Paths do not
+   affect layout, so writing them back cannot feed the observer. */
+(function () {
+  'use strict';
+
+  var svg = document.querySelector('.tc__stack svg');
+  var group = document.querySelector('.tc-stack__runs');
+  if (!svg || !group) return;
+
+  var runs = [].slice.call(group.querySelectorAll('path'));
+  var rows = [].slice.call(document.querySelectorAll('.tc-item'));
+  var grad = document.getElementById('tc-run');
+  if (!runs.length || runs.length !== rows.length) return;
+
+  /* Where each run leaves its plate. Parsed from the markup rather than
+     restated here, so the drawing stays the one place the geometry lives. */
+  var origin = [];
+  for (var i = 0; i < runs.length; i++) {
+    var m = /^\s*M\s*(-?[\d.]+)[\s,]+(-?[\d.]+)/.exec(runs[i].getAttribute('d') || '');
+    if (!m) return;
+    origin.push({ x: parseFloat(m[1]), y: parseFloat(m[2]) });
+  }
+
+  function draw() {
+    /* Below the split the stylesheet hides the runs — there is no list to the
+       right to run to, and a hidden element measures as zero. */
+    if (getComputedStyle(group).display === 'none') return;
+
+    var box = svg.getBoundingClientRect();
+    var vb = svg.viewBox.baseVal;
+    if (!box.width || !box.height || !vb.width || !vb.height) return;
+
+    var sx = box.width / vb.width;
+    var sy = box.height / vb.height;
+    var far = null;
+
+    for (var i = 0; i < rows.length; i++) {
+      var num = rows[i].querySelector('.tc-item__num') || rows[i];
+      var nb = num.getBoundingClientRect();
+      /* Beside the number and level with it, not on it: the run arrives at the
+         row, and the number stays the thing being arrived at. */
+      var x = (nb.left - 14 - box.left) / sx;
+      var y = (nb.top + nb.height / 2 - box.top) / sy;
+      var o = origin[i];
+      /* Both handles on the horizontal, but short ones. The stack is about
+         240px tall and the rows it points into run past 1000, across a gutter
+         of only some 48 — so every run is steep whatever is done to it, and
+         long flat handles only push the middles of the three long ones into
+         the same narrow band, where they read as one dotted line with
+         branches. Held to a quarter, each run leaves its plate at its own
+         angle and the five fan out and stay apart. */
+      var c = (x - o.x) * 0.25;
+      runs[i].setAttribute('d',
+        'M' + o.x + ' ' + o.y +
+        ' C' + (o.x + c) + ' ' + o.y +
+        ' ' + (x - c) + ' ' + y +
+        ' ' + x + ' ' + y);
+      if (far === null || x > far) far = x;
+    }
+
+    /* The fade is userSpaceOnUse and spanned the old fixed reach, so it has to
+       be told the new one or it would finish before the runs do. */
+    if (grad && far !== null) {
+      grad.setAttribute('x1', origin[0].x);
+      grad.setAttribute('x2', far);
+    }
+  }
+
+  draw();
+  window.addEventListener('load', draw);
+  window.addEventListener('resize', draw);
+  window.addEventListener('orientationchange', draw);
+  /* The face is swapped in after first paint, and every row's height moves
+     with it. */
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+
+  /* A row can change height without the window changing size — the copy
+     reflows at a breakpoint the window never crosses, the chips rewrap — so
+     the rows are watched as well as the window. */
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(draw);
+    ro.observe(svg);
+    for (var j = 0; j < rows.length; j++) ro.observe(rows[j]);
+    /* Parked on the node it watches. An observer nothing holds a reference to
+       has no guaranteed lifetime, live targets or not, and this one would
+       otherwise be unreachable the moment this function returns. */
+    group.tcRunsObserver = ro;
+  }
+})();

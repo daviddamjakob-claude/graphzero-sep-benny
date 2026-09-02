@@ -3867,10 +3867,14 @@ plainest thing in the drawing rather than the most filled. */
   stroke-width: 1;
 }
 
-/* The runs leave each plate for the list beside it. They fade out before the
-   edge rather than landing on a row: the rows are their own column and set
-   their own heights, so a line drawn to one would only be right at a single
-   viewport width. */
+/* The runs leave each plate for the row beside it. The rows are their own
+   column and set their own heights from their copy and their chips, so no
+   fixed path can land on one at more than a single viewport width — which is
+   why these used to fade out before the edge and leave the arrival to the eye.
+   The `d` of each is now measured and written by site.js, from the plate's
+   right vertex to the number of the row it belongs to, and redrawn whenever
+   either end could have moved. The stylesheet still owns everything about how
+   they look; only the geometry comes from the script. */
 .tc-stack__runs { color: var(--hl); }
 
 .tc-stack__runs path {
@@ -3955,7 +3959,19 @@ plainest thing in the drawing rather than the most filled. */
 
 @media (min-width: 1120px) {
   .tc-item { grid-template-columns: auto auto minmax(0, 1fr) minmax(0, 0.95fr); }
-  .tc-item__tags { grid-column: auto; }
+  /* One chip to a line. In its own column the row is about 250px and the
+     labels run from 86 to 157, so wrapping fits two on some lines and one on
+     others — a different ragged shape in each of the five sets, which is the
+     whole of what made them look unarranged. Stacked, every chip in the block
+     starts on the same left edge and each set reads down it in the order it
+     was written. The wrap is kept below this width, where the chips run the
+     full width of the row instead and a single column would be a tall thin
+     ribbon under the copy. */
+  .tc-item__tags {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 560px) {
@@ -4165,7 +4181,8 @@ plainest thing in the drawing rather than the most filled. */
    Scoped to the section: --surface-dark is what every other dark block on
    every page reads, the footer directly below this one included, and those
    all stay black. */
-.page[data-page="product"] #security {
+.page[data-page="product"] #security,
+.page[data-page="security"] #security {
   --surface-dark: var(--orange-700);
   --body: rgba(255, 255, 255, 0.88);
   --meta: rgba(255, 255, 255, 0.75);
@@ -4173,4 +4190,19 @@ plainest thing in the drawing rather than the most filled. */
      white through it. Same idea, warm — and a divider, so it answers to
      nothing but the eye. */
   --line: rgba(255, 224, 212, 0.32);
+}
+
+/* The three marks range across the column rather than bunching at its left.
+   The column is the same one the numbered rows below the band sit in, and
+   they run its full width — so left-packed, the marks ended 266px short of
+   where every row under them ends, and the two registers read as belonging to
+   different grids. Spread, the first and last marks land on the column's own
+   two edges and the band lines up with what follows it.
+
+   Only where there is a column to range across: under 900px .secsplit is one
+   column, the rows below are no longer beside anything, and space-between on
+   a row that has begun to wrap would push two marks to the edges of a line
+   for no reason. */
+@media (min-width: 900px) {
+  .page[data-page="security"] #security .markrow { justify-content: space-between; }
 }
