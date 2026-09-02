@@ -1,0 +1,24 @@
+/* LAYOUT. Container 1152px. The signature block is .panel — a rounded
+   surface floating on the page colour — usually containing a .split. */
+.container{width:min(var(--container),100% - var(--gutter) * 2);margin-inline:auto}
+.section{padding-block:var(--section-md)}
+.section--sm{padding-block:var(--section-sm)}
+.section--lg{padding-block:var(--section-lg)}
+.panel{background:var(--surface);border-radius:var(--radius-lg);padding:clamp(1.5rem,4vw,3.5rem)}
+.panel--flush{padding:0;overflow:hidden}
+.split{display:grid;gap:clamp(1.5rem,4vw,3rem);grid-template-columns:1fr;align-items:center}
+/* CHANGED FROM THE SOURCE: this read `grid-template-columns:1fr var(--split-ratio)fr`.
+   A unit cannot be built by suffixing a var() — substitution yields the two tokens
+   `1.15` and `fr` rather than the single dimension `1.15fr`, so the declaration was
+   invalid at computed-value time and the whole rule did nothing. Every .split stayed
+   one column at every width, silently breaking Rule 6 (splits are 1:1.15) across the
+   entire system. calc() is not an escape either — `fr` is a <flex>, not a <length>,
+   and calc() rejects it. The ratio therefore has to arrive as a complete track list:
+   see --split-cols in tokens/spacing.css. */
+@media (min-width:900px){.split{grid-template-columns:var(--split-cols)}.split--reverse>*:first-child{order:2}}
+.stack{display:grid;gap:var(--space-8);align-content:start}
+.stack--tight{display:grid;gap:var(--space-4);align-content:start}
+.grid{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.grid--2{grid-template-columns:repeat(auto-fit,minmax(20rem,1fr))}
+.center{text-align:center}
+.center .lead{margin-inline:auto}

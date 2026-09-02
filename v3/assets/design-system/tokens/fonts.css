@@ -1,0 +1,6 @@
+/* SUBSTITUTION — the reference metrics were measured from ES Allianz (Extraset,
+   commercial). It is not licensed and not included. Inter Tight is the closest
+   free variable substitute; Schibsted Grotesk is the fallback alternative.
+   When the brand face is licensed: add its @font-face here and change
+   --font-sans in tokens/typography.css. Nothing else moves. */
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Schibsted+Grotesk:wght@400;500&display=swap");

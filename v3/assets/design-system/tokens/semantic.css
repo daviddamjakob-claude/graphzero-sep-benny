@@ -1,0 +1,26 @@
+/* SEMANTIC LAYER — the only block themes override, and the only colour layer
+   components are allowed to read. Default identity is GREEN (sovereign,
+   institutional): near-black green page, cool white surfaces, deep green accent. */
+:root{
+  --page:var(--green-900);
+  --surface:#edf5ee;
+  --surface-2:#ffffff;
+  --ink:var(--green-900);
+  --ink-muted:#2f5741;
+  --ink-invert:var(--n-0);
+  /* Muted ink for copy sitting directly on the dark page colour — --ink-muted
+     is a light-surface token and fails contrast there. */
+  --ink-muted-invert:rgba(255,255,255,.7);
+  --accent:var(--green-600);
+  --accent-ink:#ffffff;
+  --accent-quiet:var(--green-100);
+  --chip:rgba(31,122,77,.12);
+  --hairline:rgba(6,24,15,.14);
+  --focus:var(--green-400);
+
+  /* graph / data-viz only */
+  --graph-dust:var(--green-300);
+  --graph-node:var(--green-700);
+  --graph-edge:rgba(10,122,61,.13);
+  --graph-lit:var(--green-signal);
+}
