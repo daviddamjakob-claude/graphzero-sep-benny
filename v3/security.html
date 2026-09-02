@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;display=swap">
 <link rel="stylesheet" href="assets/design-system/styles.css">
-<link rel="stylesheet" href="assets/site.css?v=13">
+<link rel="stylesheet" href="assets/site.css?v=14">
 <link rel="icon" href="assets/graphzero-mark.svg?v=11" type="image/svg+xml">
 </head>
 <body data-surface="light">
@@ -23,16 +23,15 @@
 
   <!-- The wordmark is the way back to the top of the site. -->
   <header class="site-header">
-    <div class="brand-switch" data-identity-switch>
-      <!-- Two identities under comparison, and scaffolding like the hero mark's
-           arrow: drop this wrapper, the .brand-switch rules and the identity
-           block in site.js once one is chosen, leaving the <a> where it is. -->
-      <a class="brand" href="index.html" title="/graphzero">
-        <span class="brand__slash">/</span><span class="brand__name">graphzero</span>
-      </a>
-      <button class="brand-switch__arrow" type="button" data-identity-step="1"
-              aria-label="Next identity">&rsaquo;</button>
-    </div>
+    <!-- One identity is chosen, so the wordmark is just the wordmark: the
+         wrapper and its arrow are gone, as the note that stood here said to do.
+         The identity block in site.js looks for [data-identity-switch] and
+         returns when it finds none, so nothing sets data-identity any more —
+         which also means a name stored from an earlier visit cannot bring the
+         other one back with no control left to leave it. -->
+    <a class="brand" href="index.html" title="/graphzero">
+      <span class="brand__slash">/</span><span class="brand__name">graphzero</span>
+    </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
       <span class="nav-toggle__bar"></span>
@@ -365,6 +364,6 @@
 
 </div>
 
-<script src="assets/site.js?v=13" defer></script>
+<script src="assets/site.js?v=14" defer></script>
 </body>
 </html>

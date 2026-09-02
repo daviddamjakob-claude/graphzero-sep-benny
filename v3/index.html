@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;display=swap">
 <link rel="stylesheet" href="assets/design-system/styles.css">
-<link rel="stylesheet" href="assets/site.css?v=13">
+<link rel="stylesheet" href="assets/site.css?v=14">
 <link rel="icon" href="assets/graphzero-mark.svg?v=11" type="image/svg+xml">
 </head>
 <body data-surface="light">
@@ -23,16 +23,15 @@
 
   <!-- The wordmark is the way back to the top of the site. -->
   <header class="site-header">
-    <div class="brand-switch" data-identity-switch>
-      <!-- Two identities under comparison, and scaffolding like the hero mark's
-           arrow: drop this wrapper, the .brand-switch rules and the identity
-           block in site.js once one is chosen, leaving the <a> where it is. -->
-      <a class="brand" href="index.html" title="/graphzero">
-        <span class="brand__slash">/</span><span class="brand__name">graphzero</span>
-      </a>
-      <button class="brand-switch__arrow" type="button" data-identity-step="1"
-              aria-label="Next identity">&rsaquo;</button>
-    </div>
+    <!-- One identity is chosen, so the wordmark is just the wordmark: the
+         wrapper and its arrow are gone, as the note that stood here said to do.
+         The identity block in site.js looks for [data-identity-switch] and
+         returns when it finds none, so nothing sets data-identity any more —
+         which also means a name stored from an earlier visit cannot bring the
+         other one back with no control left to leave it. -->
+    <a class="brand" href="index.html" title="/graphzero">
+      <span class="brand__slash">/</span><span class="brand__name">graphzero</span>
+    </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
       <span class="nav-toggle__bar"></span>
@@ -204,22 +203,13 @@
       <h2 class="h2 sec-head" style="max-width:44ch">Companies that make the right architectural choices get the full productivity benefits of AI &mdash; while keeping their knowledge governed, protected, and sovereign.</h2>
 
       <!-- Two columns because the point is that these are two layers, not one
-           list. The assistant is what people touch; the knowledge base is what
-           makes what they touch trustworthy. -->
+           list. The knowledge base leads: it is what makes what people touch
+           trustworthy, and putting it first runs the pair the same left to
+           right as the diagrams above and below, where the sources feed the
+           knowledge base and the knowledge base feeds the assistant. Swapped
+           in the markup rather than with grid order, so the reading order a
+           screen reader gets is the reading order on screen. -->
       <div class="layer-grid">
-        <article class="layer-card">
-          <span class="eyebrow">AI Assistant</span>
-          <hr class="rule">
-          <p class="layer-card__role">What teams use.</p>
-          <ul class="layer-list">
-          <li><strong>Natural-language interface.</strong> Makes the knowledge base accessible through simple conversation — no query language required.</li>
-          <li><strong>Advanced agentic capabilities.</strong> Executes tasks and workflows across the knowledge base — agents propose, people approve.</li>
-          <li><strong>Web access for external information.</strong> Reaches beyond company knowledge for public or external context — no need to switch tools to search elsewhere.</li>
-          <li><strong>Persistent context and memory.</strong> Carries context forward across a conversation and related chats within a project, so answers stay coherent without repeating yourself.</li>
-          <li><strong>Meets you where you work.</strong> Available through the web, Slack, and Microsoft Teams — no context-switching to a separate tool.</li>
-          </ul>
-        </article>
-
         <article class="layer-card">
           <span class="eyebrow">Knowledge Base</span>
           <hr class="rule">
@@ -233,6 +223,19 @@
           <li><strong>Continuous maintenance.</strong> Actively checks for outdated information and inconsistencies, keeping the source of truth accurate over time.</li>
           <li><strong>Multi-hop reasoning support.</strong> Structures knowledge so complex, inferential questions get real answers — not just simple lookups.</li>
           <li><strong>Full audit trail.</strong> Logs what was retrieved, by whom, and when — protection and accountability built into every answer.</li>
+          </ul>
+        </article>
+
+        <article class="layer-card">
+          <span class="eyebrow">AI Assistant</span>
+          <hr class="rule">
+          <p class="layer-card__role">What teams use.</p>
+          <ul class="layer-list">
+          <li><strong>Natural-language interface.</strong> Makes the knowledge base accessible through simple conversation — no query language required.</li>
+          <li><strong>Advanced agentic capabilities.</strong> Executes tasks and workflows across the knowledge base — agents propose, people approve.</li>
+          <li><strong>Web access for external information.</strong> Reaches beyond company knowledge for public or external context — no need to switch tools to search elsewhere.</li>
+          <li><strong>Persistent context and memory.</strong> Carries context forward across a conversation and related chats within a project, so answers stay coherent without repeating yourself.</li>
+          <li><strong>Meets you where you work.</strong> Available through the web, Slack, and Microsoft Teams — no context-switching to a separate tool.</li>
           </ul>
         </article>
       </div>
@@ -905,6 +908,6 @@
 
 </div>
 
-<script src="assets/site.js?v=13" defer></script>
+<script src="assets/site.js?v=14" defer></script>
 </body>
 </html>

@@ -1392,8 +1392,12 @@ section[id] { scroll-margin-top: calc(var(--header-h) + var(--space-8)); }
 /* The outro, on the same ground as the band above it. */
 .footer-band {
   background: var(--surface-dark);
-  margin: 0 var(--space-2) var(--space-2);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  /* v3: full bleed. The inset and the two rounded corners were drawn for an
+     outro that continued a rounded dark band sitting directly above it. The
+     band above it now runs edge to edge, which left the footer floating on a
+     white margin it no longer shared with anything. */
+  margin: 0;
+  border-radius: 0;
 }
 .footer-band .site-footer { margin-top: 0; }
 /* On the dark ground a ring alone is thin — the reference fills its tiles too,
