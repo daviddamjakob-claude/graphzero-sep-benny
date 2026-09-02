@@ -1923,10 +1923,18 @@ section[id] { scroll-margin-top: calc(var(--header-h) + var(--space-8)); }
 @media (max-width: 760px) {
   .cap { padding: var(--space-6) var(--space-4); margin-inline: calc(var(--space-4) * -1); }
 }
-/* The comparison leaves the page on a phone. It is 1100 units of small type and
-   thin rules around a control that swaps between two of them; at this width the
-   drawing either scales until its labels are unreadable or scrolls sideways,
-   and the section is the drawing. The fold's copy of it stays. */
+/* Dead in v4, and left standing so the version stays diffable against v3.
+
+   It read: the comparison leaves the page on a phone, because at that width
+   the drawing either scales until its labels are unreadable or scrolls
+   sideways, and the fold's static copy of it stays. There is no static copy
+   any more — the comparison itself is now the fold — so hiding it would leave
+   the section with no drawing at all. It takes the second horn instead and
+   scrolls sideways, on the same 860px the fold's old drawing used, which is
+   what .af-diagram-col was already set up to do below 760.
+
+   Nothing carries id="architecture" on any page now. If anything ever does
+   again, this will hide it on a phone without saying so. */
 @media (max-width: 640px) {
   #architecture { display: none; }
 }
@@ -4207,4 +4215,49 @@ plainest thing in the drawing rather than the most filled. */
    for no reason. */
 @media (min-width: 900px) {
   .page[data-page="security"] #security .markrow { justify-content: space-between; }
+}
+
+/* --------------------------------------------------------------------------
+   The comparison, moved into the Context fold.
+
+   It was the whole of the section below this one, under its own heading, on
+   the white page. The fold above carried a static drawing of the same nine
+   systems, the same knowledge base and the same assistant — saying once,
+   without the comparison, what the interactive one says twice. So the static
+   one is gone and this has taken its place, on the fold's own grey ground,
+   with the heading that stood over it now standing under it.
+
+   What the move costs, and what pays for it:
+
+   The fold is centred on this page — justify-items and text-align are both
+   set on .hero__inner--stack — and the drawing is not. Centring reaches into
+   the diagram's own boxes and moves every label in it, so the ground is set
+   back to the left inside the embed and only the heading under it keeps the
+   fold's centring.
+
+   The fold also runs padding-bottom: 0, because the drawing that used to end
+   it brought its own margin inside its viewBox. This one does not, and there
+   is now a heading after it, so the padding comes back.
+   -------------------------------------------------------------------------- */
+.page[data-page="product"] #context-layer .embed {
+  /* A grid item under justify-items: center, so it needs telling. */
+  justify-self: stretch;
+  width: 100%;
+  text-align: left;
+  margin-top: var(--space-12);
+  /* And a grid item's automatic minimum is its min-content, which here is the
+     860px the drawing holds itself to. Without this the column is sized by the
+     drawing rather than by the page: at 375 the whole fold set 892 wide and
+     the heading, the lead and both cards ran off the side, clipped by the
+     page's own overflow rule with nothing to scroll them back. Zeroed, the
+     column takes the width it is given and the drawing pans inside its own
+     scroller, which is the arrangement the rule below already assumed. */
+  min-width: 0;
+}
+.page[data-page="product"] #context-layer .af-head {
+  margin-top: var(--space-12);
+  margin-bottom: 0;
+}
+.page[data-page="product"] .hero--stack .hero__inner--stack {
+  padding-bottom: clamp(4rem, 11vh, 7.5rem);
 }
